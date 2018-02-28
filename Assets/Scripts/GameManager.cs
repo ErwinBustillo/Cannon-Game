@@ -5,6 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
+	public enum GameMode
+	{
+		FreeMode,
+		TurnMode
+	}
+	//public GameMode gameMode;
 	public static GameManager GM;
 	public Text winnerText;
 	public Text turnText;
@@ -53,11 +59,11 @@ public class GameManager : MonoBehaviour {
 			holderInfoP2.SetActive (false);
 			if (JP1 == null) {
 				winnerText.text= "WINNER PLAYER 2";
-				Debug.Log ("JUGADOR 2 Gano");
+				//Debug.Log ("JUGADOR 2 Gano");
 			} else {
 				if (JP2 == null) {
 					winnerText.text= "WINNER PLAYER 1";
-					Debug.Log ("JUGADOR 1 Gano");
+					//Debug.Log ("JUGADOR 1 Gano");
 				}
 			}
 		}
@@ -77,7 +83,7 @@ public class GameManager : MonoBehaviour {
 
 
 		if (turnForPlayer1) {
-			Debug.Log ("TURNO JUGADOR 2");
+			//Debug.Log ("TURNO JUGADOR 2");
 			turnForPlayer1 = false;
 			turnForPlayer2 = true;
 			if (JP2) {
@@ -86,7 +92,7 @@ public class GameManager : MonoBehaviour {
 			}
 		} else {
 			if (turnForPlayer2) {
-				Debug.Log ("TURNO JUGADOR 1");
+				//Debug.Log ("TURNO JUGADOR 1");
 				turnForPlayer2 = false;
 				turnForPlayer1 = true;
 				if (JP1) {

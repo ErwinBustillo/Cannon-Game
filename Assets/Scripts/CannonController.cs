@@ -22,7 +22,7 @@ public class CannonController : MonoBehaviour {
 
 	void OnDisable(){
 		isFiring = false;
-		Debug.Log ("APAGADO");
+		//Debug.Log ("APAGADO");
 	}
 	// Update is called once per frame
 	void Update () {
@@ -76,6 +76,9 @@ public class CannonController : MonoBehaviour {
 		isFiring = true;
         GameObject go = Instantiate(prefabBullet, muzzle.position,Quaternion.identity);
         go.GetComponent<Rigidbody>().AddForce(muzzle.forward*forceSpeed,tipoDeFuerza);
+		Bullet bullet = go.GetComponent<Bullet> ();
+		bullet.owner = name;
+		bullet.speed = forceSpeed;
     }
 
 }

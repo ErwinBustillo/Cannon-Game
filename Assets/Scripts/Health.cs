@@ -8,6 +8,7 @@ public class Health : MonoBehaviour {
 	public Text textHealth;
 	public int health;
 	int currentHealth;
+	public ParticleSystem particle;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,8 @@ public class Health : MonoBehaviour {
 		if (currentHealth <= 0)
 		{
 			currentHealth = 0;
+			particle.transform.SetParent (null);
+			particle.Play ();
 			Destroy (gameObject);
 			GameManager.GM.winCondition ();
 		}
